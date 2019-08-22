@@ -15,6 +15,12 @@ class CreateFormacaoAcademicaTable extends Migration
     {
         Schema::create('formacao_academica', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nome_curso');
+            $table->string('instituicao');
+            $table->date('inicio_curso');
+            $table->date('fim_curso')->nullable();
+            $table->unsignedBigInteger('id_tipo_curso');
+            $table->foreign('id_tipo_curso')->references('id')->on('tipo_curso');
             $table->timestamps();
         });
     }

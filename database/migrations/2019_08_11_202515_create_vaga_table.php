@@ -15,6 +15,12 @@ class CreateVagaTable extends Migration
     {
         Schema::create('vaga', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nome_vaga');
+            $table->string('requisitos');
+            $table->unsignedBigInteger('id_setor');
+            $table->foreign('id_setor')->references('id')->on('setor');
+            $table->unsignedBigInteger('criado_por');
+            $table->foreign('criado_por')->references('id')->on('usuarios');
             $table->timestamps();
         });
     }

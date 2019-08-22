@@ -15,6 +15,7 @@ class CreateDisciplinaPretendidaTable extends Migration
     {
         Schema::create('disciplina_pretendida', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('disciplina_pretendida');
             $table->timestamps();
         });
     }

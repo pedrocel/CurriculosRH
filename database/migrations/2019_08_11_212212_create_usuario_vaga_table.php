@@ -15,6 +15,10 @@ class CreateUsuarioVagaTable extends Migration
     {
         Schema::create('usuario_vaga', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('id_usuario');
+            $table->foreign('id_usuario')->references('id')->on('usuarios');
+            $table->unsignedBigInteger('id_vaga');
+            $table->foreign('id_vaga')->references('id')->on('vaga');
             $table->timestamps();
         });
     }

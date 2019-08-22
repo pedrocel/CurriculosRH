@@ -15,6 +15,8 @@ class CreateIdiomaTable extends Migration
     {
         Schema::create('idioma', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('idioma');
+            $table->string('nivel')->nullable();
             $table->timestamps();
         });
     }

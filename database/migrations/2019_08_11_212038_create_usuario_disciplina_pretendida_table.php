@@ -15,6 +15,10 @@ class CreateUsuarioDisciplinaPretendidaTable extends Migration
     {
         Schema::create('usuario_disciplina_pretendida', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('id_usuario');
+            $table->foreign('id_usuario')->references('id')->on('usuarios');
+            $table->unsignedBigInteger('id_disciplina');
+            $table->foreign('id_disciplina')->references('id')->on('disciplina_pretendida');
             $table->timestamps();
         });
     }

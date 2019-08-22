@@ -15,6 +15,12 @@ class CreateExperienciaProfissionalTable extends Migration
     {
         Schema::create('experiencia_profissional', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nome_empresa');
+            $table->string('cargo');
+            $table->string('funcao')->nullable();
+            $table->date('inicio_trabalho');
+            $table->date('fim_trabalho');
+            $table->boolean('atual')->default(1);
             $table->timestamps();
         });
     }
